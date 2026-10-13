@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Urban Burger</title>
+
+  <style>
+    :root {
+      --orange: #ff6b00;
+      --dark: #171717;
+      --cream: #fff8ef;
+      --gray: #666;
+      --white: #ffffff;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: var(--cream);
+      color: var(--dark);
+    }
+
+    header {
+      background: var(--dark);
+      color: white;
+      padding: 18px 7%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .logo {
+      font-size: 25px;
+      font-weight: bold;
+    }
+
+    .logo span {
+      color: var(--orange);
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 25px;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      color: var(--orange);
+    }
+
+    .hero {
+      min-height: 620px;
+      padding: 80px 7%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 40px;
+      background:
+        linear-gradient(90deg, rgba(23,23,23,.96), rgba(23,23,23,.5)),
+        url("https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=1600&q=80")
+        center/cover;
+      color: white;
+    }
+
+    .hero-text {
+      max-width: 600px;
+    }
+
+    .hero h1 {
+      font-size: clamp(42px, 7vw, 78px);
+      line-height: 1;
+      margin-bottom: 22px;
+    }
+
+    .hero h1 span {
+      color: var(--orange);
+    }
+
+    .hero p {
+      font-size: 20px;
+      line-height: 1.6;
+      margin-bottom: 30px;
+    }
+
+    .button {
+      display: inline-block;
+      background: var(--orange);
+      color: white;
+      padding: 15px 25px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: bold;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .button:hover {
+      background: #e85d00;
+      transform: translateY(-2px);
+    }
+
+    section {
+      padding: 75px 7%;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 38px;
+      margin-bottom: 12px;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      color: var(--gray);
+      margin-bottom: 40px;
+    }
+
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 5px 20px rgba(0,0,0,.08);
+      transition: .3s;
+    }
+
+    .card:hover {
+      transform: translateY(-7px);
+    }
+
+    .card img {
+      width: 100%;
+      height: 210px;
+      object-fit: cover;
+    }
+
+    .card-content {
+      padding: 20px;
+    }
+
+    .card h3 {
+      font-size: 22px;
+      margin-bottom: 8px;
+    }
+
+    .card p {
+      color: var(--gray);
+      line-height: 1.5;
+      margin-bottom: 15px;
+    }
+
+    .price {
+      color: var(--orange);
+      font-weight: bold;
+      font-size: 21px;
+    }
+
+    .about {
+      background: var(--dark);
+      color: white;
+      text-align: center;
+    }
+
+    .about p {
+      max-width: 700px;
+      margin: auto;
+      line-height: 1.8;
+      font-size: 18px;
+    }
+
+    .contact-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 35px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .contact-box {
+      background: white;
+      padding: 30px;
+      border-radius: 18px;
+      box-shadow: 0 5px 20px rgba(0,0,0,.08);
+    }
+
+    .contact-box h3 {
+      margin-bottom: 18px;
+      color: var(--orange);
+    }
+
+    .contact-box p {
+      line-height: 2;
+      color: var(--gray);
+    }
+
+    footer {
+      background: #0d0d0d;
+      color: white;
+      text-align: center;
+      padding: 25px;
+    }
+
+    .order-message {
+      display: none;
+      margin-top: 15px;
+      color: #16803c;
+      font-weight: bold;
+    }
+
+    @media (max-width: 800px) {
+      header {
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      nav a {
+        margin: 0 7px;
+        font-size: 14px;
+      }
+
+      .hero {
+        text-align: center;
+        justify-content: center;
+      }
+
+      .menu-grid,
+      .contact-container {
+        grid-template-columns: 1fr;
+      }
+
+      .section-title {
+        font-size: 30px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="logo">Urban<span>Burger</span></div>
+
+    <nav>
+      <a href="#accueil">Accueil</a>
+      <a href="#menu">Menu</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="accueil">
+      <div class="hero-text">
+        <h1>Le goût qui<br><span>fait la différence.</span></h1>
+        <p>
+          Des burgers généreux, des frites croustillantes et des produits
+          préparés avec passion.
+        </p>
+        <a href="#menu" class="button">Découvrir le menu</a>
+      </div>
+    </section>
+
+    <section id="menu">
+      <h2 class="section-title">Notre menu</h2>
+      <p class="section-subtitle">Des recettes gourmandes préparées à la commande</p>
+
+      <div class="menu-grid">
+
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-157 burger" alt="Burger classique"
+               onerror="this.src='https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=800&q=80'">
+          <div class="card-content">
+            <h3>Classic Urban</h3>
+            <p>Steak haché, cheddar, salade, tomates, oignons et sauce maison.</p>
+            <span class="price">8,90 €</span>
+          </div>
+        </article>
+
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=800&q=80"
+               alt="Double cheeseburger">
+          <div class="card-content">
+            <h3>Double Cheese</h3>
+            <p>Deux steaks, double cheddar, cornichons et sauce barbecue.</p>
+            <span class="price">11,90 €</span>
+          </div>
+        </article>
+
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1606755962773-d324e0a13086?auto=format&fit=crop&w=800&q=80"
+               alt="Burger poulet">
+          <div class="card-content">
+            <h3>Crispy Chicken</h3>
+            <p>Poulet croustillant, salade, cheddar et sauce légèrement épicée.</p>
+            <span class="price">9,90 €</span>
+          </div>
+        </article>
+
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1573080496219-bb080dd4f877?auto=format&fit=crop&w=800&q=80"
+               alt="Frites">
+          <div class="card-content">
+            <h3>Frites maison</h3>
+            <p>Frites dorées et croustillantes, avec sauce au choix.</p>
+            <span class="price">3,50 €</span>
+          </div>
+        </article>
+
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1586190848861-99aa4a171e90?auto=format&fit=crop&w=800&q=80"
+               alt="Menu burger">
+          <div class="card-content">
+            <h3>Menu Urban</h3>
+            <p>Un burger, des frites et une boisson fraîche.</p>
+            <span class="price">13,90 €</span>
+          </div>
+        </article>
+
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=800&q=80"
+               alt="Dessert">
+          <div class="card-content">
+            <h3>Moelleux chocolat</h3>
+            <p>Un délicieux dessert au chocolat préparé avec amour.</p>
+            <span class="price">4,90 €</span>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <section class="about">
+      <h2 class="section-title">Notre philosophie</h2>
+      <p>
+        Chez Urban Burger, nous croyons qu’un bon fast-food doit être rapide,
+        généreux et préparé avec des ingrédients de qualité. Chaque commande
+        est cuisinée avec soin pour vous offrir une expérience savoureuse.
+      </p>
+    </section>
+
+    <section id="contact">
+      <h2 class="section-title">Venez nous voir</h2>
+      <p class="section-subtitle">Nous sommes ouverts toute la semaine</p>
+
+      <div class="contact-container">
+        <div class="contact-box">
+          <h3>Informations</h3>
+          <p>📍 25 rue de la République, Paris</p>
+          <p>📞 01 23 45 67 89</p>
+          <p>🕒 Lundi - Dimanche : 11h30 - 23h00</p>
+          <br>
+          <button class="button" onclick="commander()">Commander maintenant</button>
+          <div class="order-message" id="message">
+            Appelez-nous au 01 23 45 67 89 pour commander !
+          </div>
+        </div>
+
+        <div class="contact-box">
+          <h3>Nous trouver</h3>
+          <p>
+            Situé au cœur de Paris, Urban Burger vous accueille sur place,
+            à emporter ou en livraison.
+          </p>
+          <br>
+          <a class="button" href="https://www.google.com/maps" target="_blank">
+            Voir l'itinéraire
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © 2026 Urban Burger — Tous droits réservés
+  </footer>
+
+  <script>
+    function commander() {
+      document.getElementById("message").style.display = "block";
+    }
+  </script>
+
+</body>
+</html>
